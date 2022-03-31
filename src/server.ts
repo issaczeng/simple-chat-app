@@ -3,6 +3,8 @@ import socketIO, { Server as SocketIOServer } from "socket.io";
 import { createServer, Server as HTTPServer } from "http";
 import path from "path";
 
+const SERVER_PORT = 3001;
+
 export class Server {
   private httpServer: HTTPServer;
   private app: Application;
@@ -10,7 +12,7 @@ export class Server {
 
   private activeSockets: string[] = [];
 
-  private readonly DEFAULT_PORT = 3000;
+  private readonly DEFAULT_PORT = SERVER_PORT;
 
   constructor() {
     this.initialize();

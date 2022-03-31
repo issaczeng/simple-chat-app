@@ -1,5 +1,6 @@
 let isAlreadyCalling = false;
 let getCalled = false;
+const SERVER_PORT = 3001;
 
 const existingCalls = [];
 
@@ -63,7 +64,7 @@ function updateUserList(socketIds) {
   });
 }
 
-const socket = io.connect("localhost:3000");
+const socket = io.connect(`localhost:${SERVER_PORT}`);
 
 socket.on("update-user-list", ({ users }) => {
   updateUserList(users);
