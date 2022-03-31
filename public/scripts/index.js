@@ -1,5 +1,7 @@
 let isAlreadyCalling = false;
 let getCalled = false;
+
+const SERVER_HOST = 'getone.run';
 const SERVER_PORT = 3001;
 
 const existingCalls = [];
@@ -64,7 +66,7 @@ function updateUserList(socketIds) {
   });
 }
 
-const socket = io.connect(`localhost:${SERVER_PORT}`);
+const socket = io.connect(`${SERVER_HOST}:${SERVER_PORT}`);
 
 socket.on("update-user-list", ({ users }) => {
   updateUserList(users);
